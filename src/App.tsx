@@ -1,8 +1,34 @@
-import React from 'react';
+import React, { useState } from 'react';
+
+const Token = ({ id, text, className, tooltip, activeTooltip, setActiveTooltip }: any) => {
+  return (
+    <span className="relative inline-block">
+      <span 
+        className={`${className} cursor-pointer hover:underline decoration-dashed underline-offset-4 transition-all duration-200`}
+        onClick={(e) => {
+          e.stopPropagation();
+          setActiveTooltip(activeTooltip === id ? null : id);
+        }}
+      >
+        {text}
+      </span>
+      {activeTooltip === id && (
+        <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-48 p-3 bg-[#1a1a1a] border border-[rgba(255,255,255,0.1)] rounded-md shadow-2xl text-white text-[11px] font-sans z-10 leading-relaxed cursor-default" onClick={e => e.stopPropagation()}>
+          <div className="font-medium text-[#ff5a00] mb-1.5 font-mono text-[10px]">{text}</div>
+          <div className="text-[#a8a8a8]">{tooltip}</div>
+          <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-[rgba(255,255,255,0.1)]"></div>
+          <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-[#1a1a1a] mt-[-1px]"></div>
+        </div>
+      )}
+    </span>
+  );
+};
 
 export default function App() {
+  const [activeTooltip, setActiveTooltip] = useState<string | null>(null);
+
   return (
-    <div className="min-h-screen p-4 sm:p-8 lg:p-16 max-w-[1600px] mx-auto flex flex-col">
+    <div className="min-h-screen p-4 sm:p-8 lg:p-16 max-w-[1600px] mx-auto flex flex-col" onClick={() => setActiveTooltip(null)}>
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 flex-grow">
         {/* Left section (Cols 1-4) */}
         <div className="lg:col-span-4 flex flex-col gap-12 lg:justify-between h-full">
@@ -141,15 +167,15 @@ export default function App() {
                       <span className="text-[#7a8390] italic">// CSS Syntax Highlighter UI</span>
                       <span className="text-[#7a8390] italic">// Manages the Figma plugin interface</span>
                       <br/>
-                      <span><span className="text-[#ff5a00] font-medium">import</span> <span className="text-[#e6edf3]">PluginManager</span> <span className="text-[#ff5a00] font-medium">from</span> <span className="text-[#7ee787]">'figma.js'</span>;</span>
+                      <span><Token id="import" text="import" className="text-[#ff5a00] font-medium" tooltip="Used to import bindings which are exported by another module." activeTooltip={activeTooltip} setActiveTooltip={setActiveTooltip} /> <Token id="PluginManager" text="PluginManager" className="text-[#e6edf3]" tooltip="Core class responsible for initializing and managing the Figma plugin lifecycle." activeTooltip={activeTooltip} setActiveTooltip={setActiveTooltip} /> <span className="text-[#ff5a00] font-medium">from</span> <span className="text-[#7ee787]">'figma.js'</span>;</span>
                       <br/>
-                      <span><span className="text-[#ff5a00] font-medium">interface</span> <span className="text-[#79c0ff]">PluginSettings</span> {'{'}</span>
-                      <span className="pl-4"><span className="text-[#e6edf3]">cssColorScheme</span>: <span className="text-[#79c0ff]">Record</span>&lt;<span className="text-[#79c0ff]">string</span>, {'{'} <span className="text-[#e6edf3]">r</span>: <span className="text-[#79c0ff]">number</span>, <span className="text-[#e6edf3]">g</span>: <span className="text-[#79c0ff]">number</span>, <span className="text-[#e6edf3]">b</span>: <span className="text-[#79c0ff]">number</span> {'}'}&gt;;</span>
-                      <span className="pl-4"><span className="text-[#e6edf3]">jsColorScheme</span>: <span className="text-[#79c0ff]">Record</span>&lt;<span className="text-[#79c0ff]">string</span>, {'{'} <span className="text-[#e6edf3]">r</span>: <span className="text-[#79c0ff]">number</span>, <span className="text-[#e6edf3]">g</span>: <span className="text-[#79c0ff]">number</span>, <span className="text-[#e6edf3]">b</span>: <span className="text-[#79c0ff]">number</span> {'}'}&gt;;</span>
+                      <span><Token id="interface" text="interface" className="text-[#ff5a00] font-medium" tooltip="Declares a new type in TypeScript." activeTooltip={activeTooltip} setActiveTooltip={setActiveTooltip} /> <Token id="PluginSettings" text="PluginSettings" className="text-[#79c0ff]" tooltip="Type definition for the plugin's configuration object." activeTooltip={activeTooltip} setActiveTooltip={setActiveTooltip} /> {'{'}</span>
+                      <span className="pl-4"><span className="text-[#e6edf3]">cssColorScheme</span>: <Token id="Record1" text="Record" className="text-[#79c0ff]" tooltip="Constructs an object type whose property keys are Keys and whose property values are Type." activeTooltip={activeTooltip} setActiveTooltip={setActiveTooltip} />&lt;<span className="text-[#79c0ff]">string</span>, {'{'} <span className="text-[#e6edf3]">r</span>: <span className="text-[#79c0ff]">number</span>, <span className="text-[#e6edf3]">g</span>: <span className="text-[#79c0ff]">number</span>, <span className="text-[#e6edf3]">b</span>: <span className="text-[#79c0ff]">number</span> {'}'}&gt;;</span>
+                      <span className="pl-4"><span className="text-[#e6edf3]">jsColorScheme</span>: <Token id="Record2" text="Record" className="text-[#79c0ff]" tooltip="Constructs an object type whose property keys are Keys and whose property values are Type." activeTooltip={activeTooltip} setActiveTooltip={setActiveTooltip} />&lt;<span className="text-[#79c0ff]">string</span>, {'{'} <span className="text-[#e6edf3]">r</span>: <span className="text-[#79c0ff]">number</span>, <span className="text-[#e6edf3]">g</span>: <span className="text-[#79c0ff]">number</span>, <span className="text-[#e6edf3]">b</span>: <span className="text-[#79c0ff]">number</span> {'}'}&gt;;</span>
                       <span className="pl-4"><span className="text-[#e6edf3]">enabled</span>: <span className="text-[#79c0ff]">boolean</span>;</span>
                       <span>{'}'}</span>
                       <br/>
-                      <span><span className="text-[#ff5a00] font-medium">let</span> <span className="text-[#e6edf3]">settings</span>: <span className="text-[#79c0ff]">PluginSettings</span> = {'{'}</span>
+                      <span><Token id="let" text="let" className="text-[#ff5a00] font-medium" tooltip="Declares a re-assignable, block-scoped local variable." activeTooltip={activeTooltip} setActiveTooltip={setActiveTooltip} /> <span className="text-[#e6edf3]">settings</span>: <Token id="PluginSettings2" text="PluginSettings" className="text-[#79c0ff]" tooltip="Type definition for the plugin's configuration object." activeTooltip={activeTooltip} setActiveTooltip={setActiveTooltip} /> = {'{'}</span>
                       <span className="pl-4"><span className="text-[#e6edf3]">cssColorScheme</span>: {'{'}</span>
                       <span className="pl-8"><span className="text-[#7ee787]">'selector'</span>: {'{'} <span className="text-[#e6edf3]">r</span>: <span className="text-[#d2a8ff]">0.5</span>, <span className="text-[#e6edf3]">g</span>: <span className="text-[#d2a8ff]">0.7</span>, <span className="text-[#e6edf3]">b</span>: <span className="text-[#d2a8ff]">0.9</span> {'}'},</span>
                       <span className="pl-8"><span className="text-[#7ee787]">'property'</span>: {'{'} <span className="text-[#e6edf3]">r</span>: <span className="text-[#d2a8ff]">0.6</span>, <span className="text-[#e6edf3]">g</span>: <span className="text-[#d2a8ff]">0.7</span>, <span className="text-[#e6edf3]">b</span>: <span className="text-[#d2a8ff]">0.9</span> {'}'},</span>
@@ -166,8 +192,8 @@ export default function App() {
                       <span className="pl-4"><span className="text-[#e6edf3]">enabled</span>: <span className="text-[#d2a8ff]">true</span></span>
                       <span>{'}'};</span>
                       <br/>
-                      <span><span className="text-[#ff5a00] font-medium">const</span> <span className="text-[#e6edf3]">highlightButton</span> =</span>
-                      <span><span className="text-[#e6edf3]">document</span>.<span className="text-[#d2a8ff]">getElementById</span>(<span className="text-[#7ee787]">'highlight-button'</span>);</span>
+                      <span><Token id="const" text="const" className="text-[#ff5a00] font-medium" tooltip="Declares a block-scoped, read-only named constant." activeTooltip={activeTooltip} setActiveTooltip={setActiveTooltip} /> <span className="text-[#e6edf3]">highlightButton</span> =</span>
+                      <span><Token id="document" text="document" className="text-[#e6edf3]" tooltip="Represents any web page loaded in the browser and serves as an entry point into the web page's content." activeTooltip={activeTooltip} setActiveTooltip={setActiveTooltip} />.<Token id="getElementById" text="getElementById" className="text-[#d2a8ff]" tooltip="Returns an Element object representing the element whose id property matches the specified string." activeTooltip={activeTooltip} setActiveTooltip={setActiveTooltip} />(<span className="text-[#7ee787]">'highlight-button'</span>);</span>
                     </div>
                   </div>
                 </div>
