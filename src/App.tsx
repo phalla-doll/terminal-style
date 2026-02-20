@@ -2,10 +2,10 @@ import React from 'react';
 
 export default function App() {
   return (
-    <div className="min-h-screen p-8 lg:p-16 max-w-[1600px] mx-auto flex flex-col">
+    <div className="min-h-screen p-4 sm:p-8 lg:p-16 max-w-[1600px] mx-auto flex flex-col">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 flex-grow">
         {/* Left section (Cols 1-4) */}
-        <div className="lg:col-span-4 flex flex-col justify-between h-full">
+        <div className="lg:col-span-4 flex flex-col gap-12 lg:justify-between h-full">
           <div className="space-y-12 mt-4">
             <div className="flex items-center space-x-3 text-xs tracking-widest text-[#888888] font-mono uppercase">
               <div className="accent-dot"></div>
@@ -13,7 +13,7 @@ export default function App() {
             </div>
             
             <div className="space-y-8">
-              <h1 className="text-5xl lg:text-[3.5rem] font-medium tracking-tight leading-[1.1]">
+              <h1 className="text-4xl sm:text-5xl lg:text-[3.5rem] font-medium tracking-tight leading-[1.1]">
                 Droids meet you<br/>wherever you work.
               </h1>
               
@@ -26,7 +26,7 @@ export default function App() {
             </div>
           </div>
           
-          <div className="mt-24 mb-4 space-y-4 font-mono text-xs tracking-wider">
+          <div className="mt-12 lg:mt-24 mb-4 space-y-4 font-mono text-xs tracking-wider">
             <div className="flex items-center space-x-2 text-[#888888] mb-8">
                <div className="flex space-x-1.5">
                  <div className="w-1.5 h-1.5 rounded-full bg-[#ff5a00] shadow-[0_0_8px_#ff5a00]"></div>
@@ -61,7 +61,7 @@ export default function App() {
         
         {/* Middle section (Cols 5-7) */}
         <div className="lg:col-span-3 flex flex-col justify-end pb-4">
-          <div className="panel p-8 rounded-lg flex flex-col h-[360px] justify-between relative overflow-hidden group">
+          <div className="panel p-6 sm:p-8 rounded-lg flex flex-col min-h-[300px] lg:h-[360px] justify-between relative overflow-hidden group">
             <div className="flex justify-between items-start">
               <div className="accent-dot mt-1.5"></div>
               <div className="text-[10px] font-mono text-[#555] uppercase tracking-widest">
@@ -84,7 +84,7 @@ export default function App() {
         
         {/* Right section (Cols 8-12) */}
         <div className="lg:col-span-5 flex flex-col justify-end pb-4">
-          <div className="panel rounded-lg h-[640px] flex flex-col relative overflow-hidden">
+          <div className="panel rounded-lg h-[500px] lg:h-[640px] flex flex-col relative overflow-hidden">
             <div className="absolute top-6 left-6">
               <div className="accent-dot"></div>
             </div>
@@ -93,7 +93,7 @@ export default function App() {
             </div>
             
             {/* Mock IDE Content */}
-            <div className="flex-grow mt-20 mx-6 mb-6 border border-[rgba(255,255,255,0.05)] rounded-md bg-[#050505] flex flex-col overflow-hidden shadow-2xl">
+            <div className="flex-grow mt-16 sm:mt-20 mx-4 sm:mx-6 mb-4 sm:mb-6 border border-[rgba(255,255,255,0.05)] rounded-md bg-[#050505] flex flex-col overflow-hidden shadow-2xl">
               {/* IDE Header */}
               <div className="h-10 border-b border-[rgba(255,255,255,0.05)] flex items-center justify-center relative bg-[#0a0a0a]">
                 <div className="absolute left-4 flex space-x-2">
@@ -111,7 +111,7 @@ export default function App() {
               {/* IDE Body */}
               <div className="flex flex-grow overflow-hidden bg-[#050505]">
                 {/* Sidebar */}
-                <div className="w-48 border-r border-[rgba(255,255,255,0.05)] p-4 flex flex-col space-y-6">
+                <div className="hidden md:flex w-48 border-r border-[rgba(255,255,255,0.05)] p-4 flex-col space-y-6">
                   <div className="text-[10px] font-mono text-[#888888] flex items-center space-x-2">
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
                     <span className="text-white tracking-widest">EXPLORER</span>
@@ -132,8 +132,8 @@ export default function App() {
                 </div>
                 
                 {/* Code Area */}
-                <div className="flex-grow p-4 overflow-y-auto text-[10px] font-mono leading-relaxed">
-                  <div className="flex">
+                <div className="flex-grow p-4 overflow-auto text-[10px] font-mono leading-relaxed">
+                  <div className="flex min-w-max">
                     <div className="text-[#333] text-right pr-6 select-none flex flex-col">
                       {Array.from({length: 35}).map((_, i) => <span key={i}>{i + 1}</span>)}
                     </div>
@@ -177,7 +177,7 @@ export default function App() {
             </div>
             
             {/* Bottom Bar */}
-            <div className="h-14 border-t border-[rgba(255,255,255,0.05)] flex items-center justify-between px-6 text-[10px] font-mono text-[#555] tracking-widest uppercase">
+            <div className="h-14 border-t border-[rgba(255,255,255,0.05)] flex items-center justify-between px-4 sm:px-6 text-[10px] font-mono text-[#555] tracking-widest uppercase">
               <span>IDE</span>
               <span>Droids where you code</span>
             </div>
