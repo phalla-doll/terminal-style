@@ -138,38 +138,36 @@ export default function App() {
                       {Array.from({length: 35}).map((_, i) => <span key={i}>{i + 1}</span>)}
                     </div>
                     <div className="text-[#a8a8a8] flex flex-col">
-                      <span className="text-[#555]">// CSS Syntax Highlighter UI</span>
-                      <span className="text-[#555]">// Manages the Figma plugin interface</span>
+                      <span className="text-[#7a8390] italic">// CSS Syntax Highlighter UI</span>
+                      <span className="text-[#7a8390] italic">// Manages the Figma plugin interface</span>
                       <br/>
-                      <span><span className="text-[#c678dd]">import</span> PluginManager <span className="text-[#c678dd]">from</span> <span className="text-[#98c379]">'figma.js'</span></span>
+                      <span><span className="text-[#ff5a00] font-medium">import</span> <span className="text-[#e6edf3]">PluginManager</span> <span className="text-[#ff5a00] font-medium">from</span> <span className="text-[#7ee787]">'figma.js'</span>;</span>
                       <br/>
-                      <span><span className="text-[#c678dd]">interface</span> PluginSettings {'{'}</span>
-                      <span className="pl-4">cssColorScheme: Record&lt;<span className="text-[#e5c07b]">string</span>, {'{'} r:</span>
-                      <span className="pl-4">number, g: number, b: number {'}'}&gt;;</span>
-                      <span className="pl-4">jsColorScheme: Record&lt;<span className="text-[#e5c07b]">string</span>, {'{'} r:</span>
-                      <span className="pl-4">number, g: number, b: number {'}'}&gt;;</span>
-                      <span className="pl-4">enabled: <span className="text-[#e5c07b]">boolean</span>;</span>
+                      <span><span className="text-[#ff5a00] font-medium">interface</span> <span className="text-[#79c0ff]">PluginSettings</span> {'{'}</span>
+                      <span className="pl-4"><span className="text-[#e6edf3]">cssColorScheme</span>: <span className="text-[#79c0ff]">Record</span>&lt;<span className="text-[#79c0ff]">string</span>, {'{'} <span className="text-[#e6edf3]">r</span>: <span className="text-[#79c0ff]">number</span>, <span className="text-[#e6edf3]">g</span>: <span className="text-[#79c0ff]">number</span>, <span className="text-[#e6edf3]">b</span>: <span className="text-[#79c0ff]">number</span> {'}'}&gt;;</span>
+                      <span className="pl-4"><span className="text-[#e6edf3]">jsColorScheme</span>: <span className="text-[#79c0ff]">Record</span>&lt;<span className="text-[#79c0ff]">string</span>, {'{'} <span className="text-[#e6edf3]">r</span>: <span className="text-[#79c0ff]">number</span>, <span className="text-[#e6edf3]">g</span>: <span className="text-[#79c0ff]">number</span>, <span className="text-[#e6edf3]">b</span>: <span className="text-[#79c0ff]">number</span> {'}'}&gt;;</span>
+                      <span className="pl-4"><span className="text-[#e6edf3]">enabled</span>: <span className="text-[#79c0ff]">boolean</span>;</span>
                       <span>{'}'}</span>
                       <br/>
-                      <span><span className="text-[#c678dd]">let</span> settings: PluginSettings = {'{'}</span>
-                      <span className="pl-4">cssColorScheme: {'{'}</span>
-                      <span className="pl-8"><span className="text-[#98c379]">'selector'</span>: {'{'} r: <span className="text-[#d19a66]">0.5</span>, g: <span className="text-[#d19a66]">0.7</span>, b: <span className="text-[#d19a66]">0.9</span> {'}'},</span>
-                      <span className="pl-8"><span className="text-[#98c379]">'property'</span>: {'{'} r: <span className="text-[#d19a66]">0.6</span>, g: <span className="text-[#d19a66]">0.7</span>, b: <span className="text-[#d19a66]">0.9</span> {'}'},</span>
-                      <span className="pl-8"><span className="text-[#98c379]">'value'</span>: {'{'} r: <span className="text-[#d19a66]">0.6</span>, g: <span className="text-[#d19a66]">0.7</span>, b: <span className="text-[#d19a66]">0.6</span> {'}'},</span>
-                      <span className="pl-8"><span className="text-[#98c379]">'string'</span>: {'{'} r: <span className="text-[#d19a66]">0.8</span>, g: <span className="text-[#d19a66]">0.5</span>, b: <span className="text-[#d19a66]">0.4</span> {'}'},</span>
-                      <span className="pl-8"><span className="text-[#98c379]">'number'</span>: {'{'} r: <span className="text-[#d19a66]">0.6</span>, g: <span className="text-[#d19a66]">0.7</span>, b: <span className="text-[#d19a66]">0.5</span> {'}'},</span>
-                      <span className="pl-8"><span className="text-[#98c379]">'comment'</span>: {'{'} r: <span className="text-[#d19a66]">0.4</span>, g: <span className="text-[#d19a66]">0.5</span>, b: <span className="text-[#d19a66]">0.3</span> {'}'},</span>
-                      <span className="pl-8"><span className="text-[#98c379]">'punctuation'</span>: {'{'} r: <span className="text-[#d19a66]">0.9</span>, g: <span className="text-[#d19a66]">0.9</span>, b: <span className="text-[#d19a66]">0.9</span> {'}'},</span>
-                      <span className="pl-8"><span className="text-[#98c379]">'at-rule'</span>: {'{'} r: <span className="text-[#d19a66]">0.8</span>, g: <span className="text-[#d19a66]">0.5</span>, b: <span className="text-[#d19a66]">0.8</span> {'}'},</span>
-                      <span className="pl-8"><span className="text-[#98c379]">'whitespace'</span>: {'{'} r: <span className="text-[#d19a66]">1</span>, g: <span className="text-[#d19a66]">1</span>, b: <span className="text-[#d19a66]">1</span> {'}'},</span>
-                      <span className="pl-8"><span className="text-[#98c379]">'unknown'</span>: {'{'} r: <span className="text-[#d19a66]">1</span>, g: <span className="text-[#d19a66]">1</span>, b: <span className="text-[#d19a66]">1</span> {'}'}</span>
+                      <span><span className="text-[#ff5a00] font-medium">let</span> <span className="text-[#e6edf3]">settings</span>: <span className="text-[#79c0ff]">PluginSettings</span> = {'{'}</span>
+                      <span className="pl-4"><span className="text-[#e6edf3]">cssColorScheme</span>: {'{'}</span>
+                      <span className="pl-8"><span className="text-[#7ee787]">'selector'</span>: {'{'} <span className="text-[#e6edf3]">r</span>: <span className="text-[#d2a8ff]">0.5</span>, <span className="text-[#e6edf3]">g</span>: <span className="text-[#d2a8ff]">0.7</span>, <span className="text-[#e6edf3]">b</span>: <span className="text-[#d2a8ff]">0.9</span> {'}'},</span>
+                      <span className="pl-8"><span className="text-[#7ee787]">'property'</span>: {'{'} <span className="text-[#e6edf3]">r</span>: <span className="text-[#d2a8ff]">0.6</span>, <span className="text-[#e6edf3]">g</span>: <span className="text-[#d2a8ff]">0.7</span>, <span className="text-[#e6edf3]">b</span>: <span className="text-[#d2a8ff]">0.9</span> {'}'},</span>
+                      <span className="pl-8"><span className="text-[#7ee787]">'value'</span>: {'{'} <span className="text-[#e6edf3]">r</span>: <span className="text-[#d2a8ff]">0.6</span>, <span className="text-[#e6edf3]">g</span>: <span className="text-[#d2a8ff]">0.7</span>, <span className="text-[#e6edf3]">b</span>: <span className="text-[#d2a8ff]">0.6</span> {'}'},</span>
+                      <span className="pl-8"><span className="text-[#7ee787]">'string'</span>: {'{'} <span className="text-[#e6edf3]">r</span>: <span className="text-[#d2a8ff]">0.8</span>, <span className="text-[#e6edf3]">g</span>: <span className="text-[#d2a8ff]">0.5</span>, <span className="text-[#e6edf3]">b</span>: <span className="text-[#d2a8ff]">0.4</span> {'}'},</span>
+                      <span className="pl-8"><span className="text-[#7ee787]">'number'</span>: {'{'} <span className="text-[#e6edf3]">r</span>: <span className="text-[#d2a8ff]">0.6</span>, <span className="text-[#e6edf3]">g</span>: <span className="text-[#d2a8ff]">0.7</span>, <span className="text-[#e6edf3]">b</span>: <span className="text-[#d2a8ff]">0.5</span> {'}'},</span>
+                      <span className="pl-8"><span className="text-[#7ee787]">'comment'</span>: {'{'} <span className="text-[#e6edf3]">r</span>: <span className="text-[#d2a8ff]">0.4</span>, <span className="text-[#e6edf3]">g</span>: <span className="text-[#d2a8ff]">0.5</span>, <span className="text-[#e6edf3]">b</span>: <span className="text-[#d2a8ff]">0.3</span> {'}'},</span>
+                      <span className="pl-8"><span className="text-[#7ee787]">'punctuation'</span>: {'{'} <span className="text-[#e6edf3]">r</span>: <span className="text-[#d2a8ff]">0.9</span>, <span className="text-[#e6edf3]">g</span>: <span className="text-[#d2a8ff]">0.9</span>, <span className="text-[#e6edf3]">b</span>: <span className="text-[#d2a8ff]">0.9</span> {'}'},</span>
+                      <span className="pl-8"><span className="text-[#7ee787]">'at-rule'</span>: {'{'} <span className="text-[#e6edf3]">r</span>: <span className="text-[#d2a8ff]">0.8</span>, <span className="text-[#e6edf3]">g</span>: <span className="text-[#d2a8ff]">0.5</span>, <span className="text-[#e6edf3]">b</span>: <span className="text-[#d2a8ff]">0.8</span> {'}'},</span>
+                      <span className="pl-8"><span className="text-[#7ee787]">'whitespace'</span>: {'{'} <span className="text-[#e6edf3]">r</span>: <span className="text-[#d2a8ff]">1</span>, <span className="text-[#e6edf3]">g</span>: <span className="text-[#d2a8ff]">1</span>, <span className="text-[#e6edf3]">b</span>: <span className="text-[#d2a8ff]">1</span> {'}'},</span>
+                      <span className="pl-8"><span className="text-[#7ee787]">'unknown'</span>: {'{'} <span className="text-[#e6edf3]">r</span>: <span className="text-[#d2a8ff]">1</span>, <span className="text-[#e6edf3]">g</span>: <span className="text-[#d2a8ff]">1</span>, <span className="text-[#e6edf3]">b</span>: <span className="text-[#d2a8ff]">1</span> {'}'}</span>
                       <span className="pl-4">{'}'},</span>
-                      <span className="pl-4">jsColorScheme: {'{}'},</span>
-                      <span className="pl-4">enabled: <span className="text-[#d19a66]">true</span></span>
+                      <span className="pl-4"><span className="text-[#e6edf3]">jsColorScheme</span>: {'{}'},</span>
+                      <span className="pl-4"><span className="text-[#e6edf3]">enabled</span>: <span className="text-[#d2a8ff]">true</span></span>
                       <span>{'}'};</span>
                       <br/>
-                      <span><span className="text-[#c678dd]">const</span> highlightButton =</span>
-                      <span>document.getElementById(<span className="text-[#98c379]">'highlight-button'</span>)</span>
+                      <span><span className="text-[#ff5a00] font-medium">const</span> <span className="text-[#e6edf3]">highlightButton</span> =</span>
+                      <span><span className="text-[#e6edf3]">document</span>.<span className="text-[#d2a8ff]">getElementById</span>(<span className="text-[#7ee787]">'highlight-button'</span>);</span>
                     </div>
                   </div>
                 </div>
