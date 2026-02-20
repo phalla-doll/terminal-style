@@ -1,6 +1,15 @@
 import React, { useState } from 'react';
 
 const Token = ({ id, text, className, tooltip, activeTooltip, setActiveTooltip }: any) => {
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    navigator.clipboard.writeText(text);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
   return (
     <span className="relative inline-block">
       <span 
@@ -13,9 +22,27 @@ const Token = ({ id, text, className, tooltip, activeTooltip, setActiveTooltip }
         {text}
       </span>
       {activeTooltip === id && (
-        <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-48 p-3 bg-[#1a1a1a] border border-[rgba(255,255,255,0.1)] rounded-md shadow-2xl text-white text-[11px] font-sans z-10 leading-relaxed cursor-default" onClick={e => e.stopPropagation()}>
-          <div className="font-medium text-[#ff5a00] mb-1.5 font-mono text-[10px]">{text}</div>
-          <div className="text-[#a8a8a8]">{tooltip}</div>
+        <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-56 p-3 bg-[#1a1a1a] border border-[rgba(255,255,255,0.1)] rounded-md shadow-2xl text-white text-[11px] font-sans z-10 leading-relaxed cursor-default flex flex-col gap-2" onClick={e => e.stopPropagation()}>
+          <div>
+            <div className="font-medium text-[#ff5a00] mb-1.5 font-mono text-[10px]">{text}</div>
+            <div className="text-[#a8a8a8]">{tooltip}</div>
+          </div>
+          <button 
+            onClick={handleCopy}
+            className="flex items-center justify-center gap-1.5 w-full py-1.5 mt-1 bg-[rgba(255,255,255,0.05)] hover:bg-[rgba(255,255,255,0.1)] border border-[rgba(255,255,255,0.05)] rounded text-[#e6edf3] transition-colors"
+          >
+            {copied ? (
+              <>
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#7ee787" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span className="text-[#7ee787] font-medium">Copied!</span>
+              </>
+            ) : (
+              <>
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                <span>Copy token</span>
+              </>
+            )}
+          </button>
           <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-[rgba(255,255,255,0.1)]"></div>
           <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-[#1a1a1a] mt-[-1px]"></div>
         </div>
